@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz for {{ username }}</h1>
+    <form action="/result" method="post">
+        <h2>Single Choice Question</h2>
+        <h3>1. {{ choice_question_1 }}</h3>
+        <input type="radio" id="a" name="single_choice_1" value="a" required>
+        <label for="a">A. {{ single_choice_1_a }}</label>
+        <input type="radio" id="b" name="single_choice_1" value="b">
+        <label for="b">B. {{ single_choice_1_b }}</label>
+        <input type="radio" id="c" name="single_choice_1" value="c">
+        <label for="c">C. {{ single_choice_1_c }}</label>
+        <input type="radio" id="d" name="single_choice_1" value="d">
+        <label for="c">D. {{ single_choice_1_d }}</label>
+        <br>
+        <h3>2. {{ choice_question_2 }}</h3>
+        <input type="radio" id="a" name="single_choice_2" value="a" required>
+        <label for="a">A. {{ single_choice_2_a }}</label>
+        <input type="radio" id="b" name="single_choice_2" value="b">
+        <label for="b">B. {{ single_choice_2_b }}</label>
+        <input type="radio" id="c" name="single_choice_2" value="c">
+        <label for="c">C. {{ single_choice_2_c }}</label>
+        <input type="radio" id="d" name="single_choice_2" value="d">
+        <label for="c">D. {{ single_choice_2_d }}</label>
+        <br>
+        <h3>3. {{ choice_question_3 }}</h3>
+        <input type="radio" id="a" name="single_choice_3" value="a" required>
+        <label for="a">A. {{ single_choice_3_a }}</label>
+        <input type="radio" id="b" name="single_choice_3" value="b">
+        <label for="b">B. {{ single_choice_3_b }}</label>
+        <input type="radio" id="c" name="single_choice_3" value="c">
+        <label for="c">C. {{ single_choice_3_c }}</label>
+        <input type="radio" id="d" name="single_choice_3" value="d">
+        <label for="c">D. {{ single_choice_3_d }}</label>
+        <br>
+        <h3>4. {{ choice_question_4 }}</h3>
+        <input type="radio" id="a" name="single_choice_4" value="a" required>
+        <label for="a">A. {{ single_choice_4_a }}</label>
+        <input type="radio" id="b" name="single_choice_4" value="b">
+        <label for="b">B. {{ single_choice_4_b }}</label>
+        <input type="radio" id="c" name="single_choice_4" value="c">
+        <label for="c">C. {{ single_choice_4_c }}</label>
+        <input type="radio" id="d" name="single_choice_4" value="d">
+        <label for="c">D. {{ single_choice_4_d }}</label>
+        <br>
+        <h2>Multiple Choice Question</h2>
+        <h3>5. {{ multi_question_1 }}</h3>
+        <input type="checkbox" id="a" name="multiple_choice_1" value="a">
+        <label for="a">A. {{ multi_question_1_a }}</label><br>
+        <input type="checkbox" id="b" name="multiple_choice_1" value="b">
+        <label for="b">B. {{ multi_question_1_b }}</label><br>
+        <input type="checkbox" id="c" name="multiple_choice_1" value="c">
+        <label for="c">C. {{ multi_question_1_c }}</label><br>
+        <input type="checkbox" id="d" name="multiple_choice_1" value="d">
+        <label for="d">D. {{ multi_question_1_d }}</label><br>
+        <input type="checkbox" id="e" name="multiple_choice_1" value="e">
+        <label for="e">E. {{ multi_question_1_e }}</label><br>
+        <br>
+        <h3>6. {{ multi_question_2 }}</h3>
+        <input type="checkbox" id="a" name="multiple_choice_2" value="a">
+        <label for="a">A. {{ multi_question_2_a }}</label><br>
+        <input type="checkbox" id="b" name="multiple_choice_2" value="b">
+        <label for="b">B. {{ multi_question_2_b }}</label><br>
+        <input type="checkbox" id="c" name="multiple_choice_2" value="c">
+        <label for="c">C. {{ multi_question_2_c }}</label><br>
+        <input type="checkbox" id="d" name="multiple_choice_2" value="d">
+        <label for="d">D. {{ multi_question_2_d }}</label><br>
+        <input type="checkbox" id="e" name="multiple_choice_2" value="e">
+        <label for="e">E. {{ multi_question_2_e }}</label><br>
+        <br>
+        <h3>7. {{ multi_question_3 }}</h3>
+        <input type="checkbox" id="a" name="multiple_choice_3" value="a">
+        <label for="a">A. {{ multi_question_3_a }}</label><br>
+        <input type="checkbox" id="b" name="multiple_choice_3" value="b">
+        <label for="b">B. {{ multi_question_3_b }}</label><br>
+        <input type="checkbox" id="c" name="multiple_choice_3" value="c">
+        <label for="c">C. {{ multi_question_3_c }}</label><br>
+        <input type="checkbox" id="d" name="multiple_choice_3" value="d">
+        <label for="d">D. {{ multi_question_3_d }}</label><br>
+        <input type="checkbox" id="e" name="multiple_choice_3" value="e">
+        <label for="e">E. {{ multi_question_3_e }}</label><br>
+        <br>
+        <h2>Coding Question</h2>
+        <h3>8. {{ coding_question_1 }}</h3><br>
+        <h3>{{ coding_question_1_def }}</h3>
+        <textarea id="coding_question_1" name="coding_question_1" rows="15" cols="80" required></textarea>
+        <br>
+        <h3>9. {{ coding_question_2 }}</h3><br>
+        <h3>{{ coding_question_2_def }}</h3>
+        <textarea id="coding_question_2" name="coding_question_2" rows="15" cols="80" required></textarea>
+        <br>
+        <h3>10. {{ coding_question_3 }}</h3><br>
+        <h3>{{ coding_question_3_def }}</h3>
+        <textarea id="coding_question_2" name="coding_question_2" rows="15" cols="80" required></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

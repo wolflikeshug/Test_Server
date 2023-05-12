@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+
+if reverse_words('Hello world') == 'olleH dlrow':
+    if reverse_words('This is a test') == 'sihT si a tset':
+        if reverse_words('The quick brown fox jumps over the lazy dog') == 'ehT kciuq nworb xof spmuj revo eht yzal god':
+            if reverse_words('ab cd ef gh ij kl mn') == 'ba dc fe hg ji lk nm':
+                if reverse_words('Python is a popular programming language') == 'nohtyP si a ralupop gnimmargorp egaugnal':
+                    print("0")
+                else:
+                    print("5")
+            else:
+                print("4")
+        else:
+            print("3")
+    else:
+        print("2")
+else:
+    print("1")

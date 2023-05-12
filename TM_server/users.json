@@ -1,0 +1,35 @@
+{
+    "alice": {
+        "id": "1",
+        "password": "123",
+        "selected_questions": [
+        
+        ],
+        "attempts": [
+
+        ],
+        "total_score": 0
+    },
+    "bob": {
+        "id": "2",
+        "password": "456",
+        "selected_questions": [
+            
+        ],
+        "attempts": [
+
+        ],
+        "total_score": 0
+    },
+    "charlie": {
+        "id": "3",
+        "password": "789",
+        "selected_questions": [
+            
+        ],
+        "attempts": [
+
+        ],
+        "total_score": 0
+    }
+}
