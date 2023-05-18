@@ -7,8 +7,18 @@
 #include "./cJSON.h"
 #include "./testCode.h"
 
-char* grading_c(char* input, char* path, char* username, char* question_file);
+// Define JSON file path and size limits
+#define FILE_PATH_SIZE 100
+#define JSON_CONTENT_SIZE 5000
 
-char* grading_py(char* input, char* path, char* username, char* question_file);
+int gradechoice(int id, char *filepath, char *ans);
+
+int grademulti(int id, char *filepath, char *ans);
+
+char *choiceans(int id, char *filepath);
+
+char *multians(int id, char *filepath);
+
+char *codingans(int id, char *filepath);
 
 #endif // GRADING_H

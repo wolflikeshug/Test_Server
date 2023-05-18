@@ -40,39 +40,42 @@
             "id": 1,
             "question": "Which of the following are new features added in the C99 standard?",
             "choices": ["Variable-length arrays", "Boolean type and bool keyword", "Qualifiers (such as restrict, _Atomic, etc.)", "Compound literals and generic macros", "Further program optimization"],
-            "answer": ["a", "b", "c", "d"]
+            "answer": "abcd"
         },
         {
             "id": 2,
             "question": "Which of the following are keywords in the C language?",
             "choices": ["function", "struct", "extern", "volatile", "private"],
-            "answer": ["b", "c", "d"]
+            "answer": "bcd"
         },
         {
             "id": 3,
             "question": "Which of the following are storage classes in the C language?",
             "choices": ["global", "static", "dynamic", "extern", "auto"],
-            "answer": ["a", "b", "d", "e"]
+            "answer": "abde"
         },
         {
             "id": 4,
             "question": "Which of the following are new features added in the C99 standard?",
             "choices": ["Variable-length arrays", "Boolean type and bool keyword", "Qualifiers (such as restrict, _Atomic, etc.)", "Compound literals and generic macros", "Further program optimization"],
-            "answer": ["a", "b", "c", "d"]
+            "answer": "abcd"
         }
     ],
     "coding":[
         {
             "id": 1,
-            "question": "Write a function that takes a list of integers as input, and returns the sum of all even numbers in the list. | int sum_even(int *list, int len)"
+            "question": "Write a C function sum_even that takes a list of integers as input, and returns the sum of all even numbers in the list. | int sum_even(int *list, int len)",
+            "answer": "int sum_even(int *list, int len) { int sum = 0; for (int i = 0; i < len; i++) { if (list[i] % 2 == 0) { sum += list[i]; } } return sum; }"
         },
         {
             "id": 2,
-            "question": "Write a function that takes a list of integers as input, and returns the sum of all odd numbers in the list. | int sum_odd(int *list, int len)"
+            "question": "Write a C function sum_odd that takes a list of integers as input, and returns the sum of all odd numbers in the list. | int sum_odd(int *list, int len)",
+            "answer": "int sum_odd(int *list, int len) { int sum = 0; for (int i = 0; i < len; i++) { if (list[i] % 2 == 1) { sum += list[i]; } } return sum; }"
         },
         {
             "id": 3,
-            "question": "Write a function that takes a list of integers as input, and returns the second largest number in the list. | int second_largest(int *list, int len)"
+            "question": "Write a C function second_largest that takes a list of integers as input, and returns the second largest number in the list. | int second_largest(int *list, int len)",
+            "answer": "int second_largest(int *list, int len) { int largest = list[0]; int second_largest = list[0]; for (int i = 0; i < len; i++) { if (list[i] > largest) { second_largest = largest; largest = list[i]; } else if (list[i] > second_largest) { second_largest = list[i]; } } return second_largest; }"
         }
     ]
 }

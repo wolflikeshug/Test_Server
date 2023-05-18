@@ -13,12 +13,12 @@ if reverse_words('Hello world') == 'olleH dlrow':
                 if reverse_words('Python is a popular programming language') == 'nohtyP si a ralupop gnimmargorp egaugnal':
                     print("0")
                 else:
-                    print("5")
+                    print("Failed test case 5")
             else:
-                print("4")
+                print("Failed test case 4")
         else:
-            print("3")
+            print("Failed test case 3")
     else:
-        print("2")
+        print("Failed test case 2")
 else:
-    print("1")
+    print("Failed test case 1")

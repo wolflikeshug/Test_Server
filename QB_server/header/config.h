@@ -15,6 +15,8 @@ typedef struct config {
     char *TM_server;
     int TM_port;
     int server_port;
+    char *RSA_priv_key;
+    char *RSA_pub_key;
 } CONFIG;
 
 void read_qb_ini_file(const char *filename, CONFIG *cfg);

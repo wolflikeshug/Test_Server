@@ -2,102 +2,209 @@
 <html>
 <head>
     <title>Quiz</title>
+    <script>
+        function disableButton() {
+            var button = document.getElementById("submitBtn");
+            button.disabled = true;
+        }
+        function handleKeyDown(event) {
+            if (event.key === 'Tab') {
+                event.preventDefault(); 
+
+                var textarea = document.getElementById('content');
+                var start = textarea.selectionStart;
+                var end = textarea.selectionEnd;
+                var value = textarea.value;
+                var newValue = value.substring(0, start) + '    ' + value.substring(end);
+                textarea.value = newValue;
+
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Quiz for {{ username }}</h1>
-    <form action="/result" method="post">
+    <h2>Your current mark is {{ total_score }}/30</h2>
+    <form action="/login" method="post">
+        <input type="submit" name="logout" value="logout"><br>
+    </form>
+    <form action="/quiz" method="post">
         <h2>Single Choice Question</h2>
         <h3>1. {{ choice_question_1 }}</h3>
-        <input type="radio" id="a" name="single_choice_1" value="a" required>
+        <input type="hidden" name = "question_1_id" value = "{{ question_1_id }}">
+        <input type="hidden" name = "question_1_type" value = "{{ question_1_type }}">
+        <h5>you have attempt {{ choice_1_attempt }}/3 times, your score for this question {{ choice_1_score }}/3</h5>
+        <h5> your previous answer: {{ choice_1_ans }}</h5>
+        <h4>{{ single_choice_1_correct_ans }}</h4>
+        <input type="radio" id="single_choice_1_a" name="single_choice_1" value="a" required>
         <label for="a">A. {{ single_choice_1_a }}</label>
-        <input type="radio" id="b" name="single_choice_1" value="b">
+        <input type="radio" id="single_choice_1_b" name="single_choice_1" value="b">
         <label for="b">B. {{ single_choice_1_b }}</label>
-        <input type="radio" id="c" name="single_choice_1" value="c">
+        <input type="radio" id="single_choice_1_c" name="single_choice_1" value="c">
         <label for="c">C. {{ single_choice_1_c }}</label>
-        <input type="radio" id="d" name="single_choice_1" value="d">
+        <input type="radio" id="single_choice_1_d" name="single_choice_1" value="d">
         <label for="c">D. {{ single_choice_1_d }}</label>
+        <br><input type="submit" name="submit Q1" value="submit Q1", onclick="disableButton()" {% if choice_1_attempt >= 3 or choice_1_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h3>2. {{ choice_question_2 }}</h3>
-        <input type="radio" id="a" name="single_choice_2" value="a" required>
+        <input type="hidden" name = "question_2_id" value = "{{ question_2_id }}">
+        <input type="hidden" name = "question_2_type" value = "{{ question_2_type }}">
+        <h5>you have attempt {{ choice_2_attempt }}/3 times, your score for this question {{ choice_2_score }}/3</h5>
+        <h5> your previous answer: {{ choice_2_ans }}</h5>
+        <h4>{{ single_choice_2_correct_ans }}</h4>
+        <input type="radio" id="single_choice_2_a" name="single_choice_2" value="a" required>
         <label for="a">A. {{ single_choice_2_a }}</label>
-        <input type="radio" id="b" name="single_choice_2" value="b">
+        <input type="radio" id="single_choice_2_b" name="single_choice_2" value="b">
         <label for="b">B. {{ single_choice_2_b }}</label>
-        <input type="radio" id="c" name="single_choice_2" value="c">
+        <input type="radio" id="single_choice_2_c" name="single_choice_2" value="c">
         <label for="c">C. {{ single_choice_2_c }}</label>
-        <input type="radio" id="d" name="single_choice_2" value="d">
+        <input type="radio" id="single_choice_2_d" name="single_choice_2" value="d">
         <label for="c">D. {{ single_choice_2_d }}</label>
+        <br><input type="submit" name="submit Q2" value="submit Q2", onclick="disableButton()" {% if choice_2_attempt >= 3 or choice_2_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h3>3. {{ choice_question_3 }}</h3>
-        <input type="radio" id="a" name="single_choice_3" value="a" required>
+        <input type="hidden" name = "question_3_id" value = "{{ question_3_id }}">
+        <input type="hidden" name = "question_3_type" value = "{{ question_3_type }}">
+        <h5>you have attempt {{ choice_3_attempt }}/3 times, your score for this question {{ choice_3_score }}/3</h5>
+        <h5> your previous answer: {{ choice_3_ans }}</h5>
+        <h4>{{ single_choice_3_correct_ans }}</h4>
+        <input type="radio" id="single_choice_3_a" name="single_choice_3" value="a" required>
         <label for="a">A. {{ single_choice_3_a }}</label>
-        <input type="radio" id="b" name="single_choice_3" value="b">
+        <input type="radio" id="single_choice_3_b" name="single_choice_3" value="b">
         <label for="b">B. {{ single_choice_3_b }}</label>
-        <input type="radio" id="c" name="single_choice_3" value="c">
+        <input type="radio" id="single_choice_3_c" name="single_choice_3" value="c">
         <label for="c">C. {{ single_choice_3_c }}</label>
-        <input type="radio" id="d" name="single_choice_3" value="d">
+        <input type="radio" id="single_choice_3_d" name="single_choice_3" value="d">
         <label for="c">D. {{ single_choice_3_d }}</label>
+        <br><input type="submit" name="submit Q3" value="submit Q3", onclick="disableButton()" {% if choice_3_attempt >= 3 or choice_3_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h3>4. {{ choice_question_4 }}</h3>
-        <input type="radio" id="a" name="single_choice_4" value="a" required>
+        <input type="hidden" name = "question_4_id" value = "{{ question_4_id }}">
+        <input type="hidden" name = "question_4_type" value = "{{ question_4_type }}">
+        <h5>you have attempt {{ choice_4_attempt }}/3 times, your score for this question {{ choice_4_score }}/3</h5>
+        <h5> your previous answer: {{ choice_4_ans }}</h5>
+        <h4>{{ single_choice_4_correct_ans }}</h4>
+        <input type="radio" id="single_choice_4_a" name="single_choice_4" value="a" required>
         <label for="a">A. {{ single_choice_4_a }}</label>
-        <input type="radio" id="b" name="single_choice_4" value="b">
+        <input type="radio" id="single_choice_4_b" name="single_choice_4" value="b">
         <label for="b">B. {{ single_choice_4_b }}</label>
-        <input type="radio" id="c" name="single_choice_4" value="c">
+        <input type="radio" id="single_choice_4_c" name="single_choice_4" value="c">
         <label for="c">C. {{ single_choice_4_c }}</label>
-        <input type="radio" id="d" name="single_choice_4" value="d">
+        <input type="radio" id="single_choice_4_d" name="single_choice_4" value="d">
         <label for="c">D. {{ single_choice_4_d }}</label>
+        <br><input type="submit" name="submit Q4" value="submit Q4", onclick="disableButton()" {% if choice_4_attempt >= 3 or choice_4_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h2>Multiple Choice Question</h2>
         <h3>5. {{ multi_question_1 }}</h3>
-        <input type="checkbox" id="a" name="multiple_choice_1" value="a">
-        <label for="a">A. {{ multi_question_1_a }}</label><br>
-        <input type="checkbox" id="b" name="multiple_choice_1" value="b">
-        <label for="b">B. {{ multi_question_1_b }}</label><br>
-        <input type="checkbox" id="c" name="multiple_choice_1" value="c">
-        <label for="c">C. {{ multi_question_1_c }}</label><br>
-        <input type="checkbox" id="d" name="multiple_choice_1" value="d">
-        <label for="d">D. {{ multi_question_1_d }}</label><br>
-        <input type="checkbox" id="e" name="multiple_choice_1" value="e">
-        <label for="e">E. {{ multi_question_1_e }}</label><br>
+        <input type="hidden" name = "question_5_id" value = "{{ question_5_id }}">
+        <input type="hidden" name = "question_5_type" value = "{{ question_5_type }}">
+        <h5>you have attempt {{ multi_1_attempt }}/3 times, your score for this question {{ multi_1_score }}/3</h5>
+        <h5> your previous answer: {{ multi_1_ans }}</h5>
+        <h4>{{ multi_question_1_correct_ans }}</h4>
+        <input type="checkbox" id="multiple_choice_1_a" name="multiple_choice_1" value="a">
+        <label for="a">A. {{ multiple_choice_1_a }}</label><br>
+        <input type="checkbox" id="multiple_choice_1_b" name="multiple_choice_1" value="b">
+        <label for="b">B. {{ multiple_choice_1_b }}</label><br>
+        <input type="checkbox" id="multiple_choice_1_c" name="multiple_choice_1" value="c">
+        <label for="c">C. {{ multiple_choice_1_c }}</label><br>
+        <input type="checkbox" id="multiple_choice_1_d" name="multiple_choice_1" value="d">
+        <label for="d">D. {{ multiple_choice_1_d }}</label><br>
+        <input type="checkbox" id="multiple_choice_1_e" name="multiple_choice_1" value="e">
+        <label for="e">E. {{ multiple_choice_1_e }}</label><br>
+        <br><input type="submit" name="submit Q5" value="submit Q5", onclick="disableButton()" {% if multi_1_attempt >= 3 or multi_1_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h3>6. {{ multi_question_2 }}</h3>
-        <input type="checkbox" id="a" name="multiple_choice_2" value="a">
-        <label for="a">A. {{ multi_question_2_a }}</label><br>
-        <input type="checkbox" id="b" name="multiple_choice_2" value="b">
-        <label for="b">B. {{ multi_question_2_b }}</label><br>
-        <input type="checkbox" id="c" name="multiple_choice_2" value="c">
-        <label for="c">C. {{ multi_question_2_c }}</label><br>
-        <input type="checkbox" id="d" name="multiple_choice_2" value="d">
-        <label for="d">D. {{ multi_question_2_d }}</label><br>
-        <input type="checkbox" id="e" name="multiple_choice_2" value="e">
-        <label for="e">E. {{ multi_question_2_e }}</label><br>
+        <input type="hidden" name = "question_6_id" value = "{{ question_6_id }}">
+        <input type="hidden" name = "question_6_type" value = "{{ question_6_type }}">
+        <h5>you have attempt {{ multi_2_attempt }}/3 times, your score for this question {{ multi_2_score }}/3</h5>
+        <h5> your previous answer: {{ multi_2_ans }}</h5>
+        <h4>{{ multi_question_2_correct_ans }}</h4>
+        <input type="checkbox" id="multiple_choice_2_a" name="multiple_choice_2" value="a">
+        <label for="a">A. {{ multiple_choice_2_a }}</label><br>
+        <input type="checkbox" id="multiple_choice_2_b" name="multiple_choice_2" value="b">
+        <label for="b">B. {{ multiple_choice_2_b }}</label><br>
+        <input type="checkbox" id="multiple_choice_2_c" name="multiple_choice_2" value="c">
+        <label for="c">C. {{ multiple_choice_2_c }}</label><br>
+        <input type="checkbox" id="multiple_choice_2_d" name="multiple_choice_2" value="d">
+        <label for="d">D. {{ multiple_choice_2_d }}</label><br>
+        <input type="checkbox" id="multiple_choice_2_e" name="multiple_choice_2" value="e">
+        <label for="e">E. {{ multiple_choice_2_e }}</label><br>
+        <br><input type="submit" name="submit Q6" value="submit Q6", onclick="disableButton()" {% if multi_2_attempt >= 3 or multi_2_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
         <h3>7. {{ multi_question_3 }}</h3>
-        <input type="checkbox" id="a" name="multiple_choice_3" value="a">
-        <label for="a">A. {{ multi_question_3_a }}</label><br>
-        <input type="checkbox" id="b" name="multiple_choice_3" value="b">
-        <label for="b">B. {{ multi_question_3_b }}</label><br>
-        <input type="checkbox" id="c" name="multiple_choice_3" value="c">
-        <label for="c">C. {{ multi_question_3_c }}</label><br>
-        <input type="checkbox" id="d" name="multiple_choice_3" value="d">
-        <label for="d">D. {{ multi_question_3_d }}</label><br>
-        <input type="checkbox" id="e" name="multiple_choice_3" value="e">
-        <label for="e">E. {{ multi_question_3_e }}</label><br>
+        <input type="hidden" name = "question_7_id" value = "{{ question_7_id }}">
+        <input type="hidden" name = "question_7_type" value = "{{ question_7_type }}">
+        <h5>you have attempt {{ multi_3_attempt }}/3 times, your score for this question {{ multi_3_score }}/3</h5>
+        <h5> your previous answer: {{ multi_3_ans }}</h5>
+        <h4>{{ multi_question_3_correct_ans }}</h4>
+        <input type="checkbox" id="multiple_choice_3_a" name="multiple_choice_3" value="a">
+        <label for="a">A. {{ multiple_choice_3_a }}</label><br>
+        <input type="checkbox" id="multiple_choice_3_b" name="multiple_choice_3" value="b">
+        <label for="b">B. {{ multiple_choice_3_b }}</label><br>
+        <input type="checkbox" id="multiple_choice_3_c" name="multiple_choice_3" value="c">
+        <label for="c">C. {{ multiple_choice_3_c }}</label><br>
+        <input type="checkbox" id="multiple_choice_3_d" name="multiple_choice_3" value="d">
+        <label for="d">D. {{ multiple_choice_3_d }}</label><br>
+        <input type="checkbox" id="multiple_choice_3_e" name="multiple_choice_3" value="e">
+        <label for="e">E. {{ multiple_choice_3_e }}</label><br>
+        <br><input type="submit" name="submit Q7" value="submit Q7", onclick="disableButton()" {% if multi_3_attempt >= 3 or multi_3_score>0 %}disabled{% endif %}>
         <br>
+    </form>
+    <form action="/quiz" method="post">
+        <h3>8. {{ multi_question_4 }}</h3>
+        <input type="hidden" name = "question_8_id" value = "{{ question_8_id }}">
+        <input type="hidden" name = "question_8_type" value = "{{ question_8_type }}">
+        <h5>you have attempt {{ multi_4_attempt }}/3 times, your score for this question {{ multi_4_score }}/3</h5>
+        <h5> your previous answer: {{ multi_4_ans }}</h5>
+        <h4>{{ multi_question_4_correct_ans }}</h4>
+        <input type="checkbox" id="multiple_choice_4_a" name="multiple_choice_4" value="a">
+        <label for="a">A. {{ multiple_choice_4_a }}</label><br>
+        <input type="checkbox" id="multiple_choice_4_b" name="multiple_choice_4" value="b">
+        <label for="b">B. {{ multiple_choice_4_b }}</label><br>
+        <input type="checkbox" id="multiple_choice_4_c" name="multiple_choice_4" value="c">
+        <label for="c">C. {{ multiple_choice_4_c }}</label><br>
+        <input type="checkbox" id="multiple_choice_4_d" name="multiple_choice_4" value="d">
+        <label for="d">D. {{ multiple_choice_4_d }}</label><br>
+        <input type="checkbox" id="multiple_choice_4_e" name="multiple_choice_4" value="e">
+        <label for="e">E. {{ multiple_choice_4_e }}</label><br>
+        <br><input type="submit" name="submit Q8" value="submit Q8", onclick="disableButton()" {% if multi_4_attempt >= 3 or multi_4_score>0 %}disabled{% endif %}>
+        <br>
+    </form>
+    <form action="/quiz" method="post">
         <h2>Coding Question</h2>
-        <h3>8. {{ coding_question_1 }}</h3><br>
-        <h3>{{ coding_question_1_def }}</h3>
-        <textarea id="coding_question_1" name="coding_question_1" rows="15" cols="80" required></textarea>
+        <h3>9. {{ coding_question_1 }}</h3>
+        <input type="hidden" name = "question_9_id" value = "{{ question_9_id }}">
+        <input type="hidden" name = "question_9_type" value = "{{ question_9_type }}">
+        <h4>{{ coding_question_1_def }}</h4>
+        <h5>you have attempt {{ coding_1_attempt }}/3 times, your score for this question {{ coding_1_score }}/3</h5>
+        <h5>your previous code: {{ coding_1_ans }}</h5>
+        <textarea id="coding_question_1_code" name="coding_question_1_code" rows="15" cols="80" required onKeyDown="handleKeyDown(event)">{{ coding_question_1_code }}</textarea>
+        <br><input type="submit" name="submit Q9" value="submit Q9", onclick="disableButton()" {% if coding_1_attempt >= 3 or coding_1_score>0 %}disabled{% endif %}>
         <br>
-        <h3>9. {{ coding_question_2 }}</h3><br>
-        <h3>{{ coding_question_2_def }}</h3>
-        <textarea id="coding_question_2" name="coding_question_2" rows="15" cols="80" required></textarea>
+    </form>
+    <form action="/quiz" method="post">
+        <h3>10. {{ coding_question_2 }}</h3>
+        <input type="hidden" name = "question_10_id" value = "{{ question_10_id }}">
+        <input type="hidden" name = "question_10_type" value = "{{ question_10_type }}">
+        <h5>you have attempt {{ coding_2_attempt }}/3 times, your score for this question {{ coding_2_score }}/3</h5>
+        <h5>your previous code: {{ coding_2_ans }}</h5>
+        <h4>{{ coding_2_correct_ans }}</h4>
+        <textarea id="coding_question_2_code" name="coding_question_2_code" rows="15" cols="80" required onKeyDown="handleKeyDown(event)">{{ coding_question_2_code }}</textarea>
+        <br><input type="submit" name="submit Q10" value="submit Q10", onclick="disableButton()" {% if coding_2_attempt >= 3 or coding_2_score>0 %}disabled{% endif %}>
         <br>
-        <h3>10. {{ coding_question_3 }}</h3><br>
-        <h3>{{ coding_question_3_def }}</h3>
-        <textarea id="coding_question_2" name="coding_question_2" rows="15" cols="80" required></textarea>
-        <br>
-        <input type="submit" value="Submit">
     </form>
 </body>
 </html>

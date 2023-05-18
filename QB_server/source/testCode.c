@@ -37,87 +37,97 @@ void insertContentInFile(const char* fileName, const char* content, const char* 
     fclose(newFile);
 }
 
-
-int testCode_c(char* path, int id, const char* content, const char* username) {
-    char* fileName = calloc(10, sizeof(char));
+char *testCode_c(char *path, int id, const char *content, const char *username) {
+    char *fileName = calloc(10, sizeof(char));
     sprintf(fileName, "%s/%i", path, id);
 
     // Insert the content in the source file
     insertContentInFile(fileName, content, username, "c");
 
-    char* executableName = calloc(50, sizeof(char));
+    char *executableName = calloc(500, sizeof(char));
     sprintf(executableName, "%s-%s.out", fileName, username);
-    char* sourceName = calloc(50, sizeof(char));
+    char *sourceName = calloc(500, sizeof(char));
     sprintf(sourceName, "%s-%s.c", fileName, username);
-    char* compileCommand = calloc(180, sizeof(char));
-    sprintf(compileCommand, "gcc -o %s %s", executableName, sourceName);
+    char *compileCommand = calloc(1800, sizeof(char));
+    sprintf(compileCommand, "gcc -o %s %s 2>&1", executableName, sourceName);
 
     // Compile the source file
-    int compileResult = system(compileCommand);
-    if (compileResult != 0) {
+    FILE *compileOutput = popen(compileCommand, "r");
+    if (compileOutput == NULL) {
+        printf("Failed to execute compile command.\n");
+        free(fileName);
+        free(executableName);
+        free(sourceName);
+        free(compileCommand);
+    }
+
+    char compileResult[1256] = "";
+    char buffer[1256];
+    while (fgets(buffer, sizeof(buffer), compileOutput) != NULL) {
+        strcat(compileResult, buffer);
+    }
+    int compileStatus = pclose(compileOutput);
+
+    if (strlen(compileResult) > 0 || compileStatus != 0) {
         printf("Compilation failed.\n");
 
         // Clear the files
         remove(executableName);
         remove(sourceName);
-        
+
         // Free the memory allocated for the file names and the compile command
         free(fileName);
         free(executableName);
         free(sourceName);
         free(compileCommand);
 
-        return 1;
+        return strdup(compileResult);
     }
 
     // Execute the executable file
-    int executeResult = system(executableName);
-    if (executeResult == 0) {
-        printf("Execution succeeded.\n");
-
-        // Clear the files
-        remove(executableName);
-        remove(sourceName);
-
-        // Free the memory allocated for the file names and the compile command
+    compileCommand = calloc(1800, sizeof(char));
+    sprintf(compileCommand, "%s  2>&1", executableName);
+    FILE *executeOutput = popen(compileCommand, "r");
+    if (executeOutput == NULL) {
+        printf("Failed to execute the executable.\n");
         free(fileName);
         free(executableName);
         free(sourceName);
         free(compileCommand);
-
-        return 0;
-    } else {
-        printf("Execution failed.\n");
-        
-        // Clear the files
-        remove(executableName);
-        remove(sourceName);
-
-        // Free the memory allocated for the file names and the compile command
-        free(fileName);
-        free(executableName);
-        free(sourceName);
-        free(compileCommand);
-
-        return 1;
     }
 
-        
-    // Clear the files
-    remove(executableName);
-    remove(sourceName);
+    char executeResult[1256] = "";
+    while (fgets(buffer, sizeof(buffer), executeOutput) != NULL) {
+        strcat(executeResult, buffer);
+    }
+    int executeStatus = pclose(executeOutput);
 
-    // Free the memory allocated for the file names and the compile command
-    free(fileName);
-    free(executableName);
-    free(sourceName);
-    free(compileCommand);
+    if (strlen(executeResult) == 0 && executeStatus == 0) {
+        printf("Execution succeeded.\n");
+        free(fileName);
+        free(executableName);
+        free(sourceName);
+        free(compileCommand);
+        return strdup("0");
+    } else {
+        printf("Execution failed.\n");
 
-    return 1;
+        // Clear the files
+        remove(executableName);
+        remove(sourceName);
+
+        // Free the memory allocated for the file names and the compile command
+        free(fileName);
+        free(executableName);
+        free(sourceName);
+        free(compileCommand);
+
+        return strdup(executeResult);
+    }
 }
 
-int testCode_py(char *path, int id, const char* content, const char* username) {
 
+char *testCode_py(char *path, int id, const char* content, const char* username) {
     char* fileName = calloc(10, sizeof(char));
     sprintf(fileName, "%s/%i", path, id);
 
@@ -128,7 +138,7 @@ int testCode_py(char *path, int id, const char* content, const char* username) {
     sprintf(executableName, "%s-%s.py", fileName, username);
 
     char command[256];
-    sprintf(command, "python3 %s", executableName);
+    sprintf(command, "python3 %s 2>&1", executableName);
 
     FILE *fp = popen(command, "r");
     if (fp == NULL) {
@@ -136,25 +146,27 @@ int testCode_py(char *path, int id, const char* content, const char* username) {
         remove(executableName);
         free(fileName);
         free(executableName);
-        return -1;
+        return strdup("Failed to execute the Python file.");
     }
 
-    char result[10];
-    fgets(result, sizeof(result), fp);
-    pclose(fp);
+    char output[1000];
+    size_t output_size = fread(output, 1, sizeof(output) - 1, fp);
+    output[output_size] = '\0';
 
-    result[strcspn(result, "\n")] = '\0';
+    int status = pclose(fp);
 
-    if (strcmp(result, "0") == 0) {
+    if (status == 0) {
         printf("Execution succeeded.\n");
         remove(executableName);
         free(fileName);
         free(executableName);
-        return 0;
+        return strdup("0");
     } else {
         printf("Execution failed.\n");
+        char *error = strdup(output);
         remove(executableName);
         free(fileName);
-        return 1;
+        free(executableName);
+        return error;
     }
 }

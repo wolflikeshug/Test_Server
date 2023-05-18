@@ -1,0 +1,71 @@
+{
+    "choice":[
+        {
+            "id": 1,
+            "question": "Which of the following is not a Python data type?",
+            "choices": ["int", "str", "dec", "bool"],
+            "answer": "c"
+        },        
+        {
+            "id": 2,
+            "question": "What is the result of the expression '5' + '2' in Python?",
+            "choices": ["7", "'7'", "'52'", "Error"],
+            "answer": "'c'"
+        },            
+        {
+            "id": 3,
+            "question": "Which of the following is not a Python control flow statement?",
+            "choices": ["if", "for", "continue", "goto"],
+            "answer": "d"
+        },
+        {
+            "id": 4,
+            "question": "Which of the following is not a valid way to declare a list in Python?",
+            "choices": ["[1, 2, 3]", "list((1, 2, 3))", "{1, 2, 3}", "list(range(3))"],
+            "answer": "c"
+        }       
+    ],
+    "multi-choice":[
+        {
+            "id": 1,
+            "question": "Which of the following are valid Python data types?",
+            "choices": ["int", "str", "bool", "dec", "list"],
+            "answer": "abce"
+        },
+        {
+            "id": 2,
+            "question": "Which of the following are true regarding Python functions?",
+            "choices": ["Functions can take optional arguments", "Functions can return multiple values", "Functions cannot be nested", "Functions can only be defined using the def keyword", "Functions can modify global variables"],
+            "answer": "ab"
+        },
+        {
+            "id": 3,
+            "question": "Which of the following are valid ways to declare a Python dictionary?",
+            "choices": ["{1: 'one', 2: 'two', 3: 'three'}", "dict([(1, 'one'), (2, 'two'), (3, 'three')])", "{'one': 1, 'two': 2, 'three': 3}", "[('one', 1), ('two', 2), ('three', 3)]","{'one': 1, 'two': 2, 'three': 3, 'four': 4}"],
+            "answer": "abc"
+        },
+        {
+            "id": 4,
+            "question": "Which of the following are valid ways to create a Python set?",
+            "choices": ["{1, 2, 3}", "set([1, 2, 3])", "{'one': 1, 'two': 2, 'three': 3}", "(1, 2, 3)", "[1, 2, 3]"],
+            "answer": "ab"
+        }
+    ],
+    "coding":[
+        {
+            "id": 1,
+            "question": "Write a python function reverse_words that takes a string as input, and returns a new string where each word in the original string is replaced with its reverse. | def reverse_words(s):",
+            "answer": "def reverse_words(s):\n\treturn ' '.join([word[::-1] for word in s.split(' ')])"
+        },
+        {
+            "id": 2,
+            "question": "Write a python function multiply_by_two that takes a list of integers as input, and returns a new list where each element of the original list is multiplied by 2. | def multiply_by_two(l):",
+            "answer": "def multiply_by_two(l):\n\treturn [x * 2 for x in l]"
+        },
+        {
+            "id": 3,
+            "question": "Write a python function filter_long_strings that takes a list of strings as input, and returns a new list containing only the strings that are longer than 5 characters. | def filter_long_strings(l):",
+            "answer": "def filter_long_strings(l):\n\treturn [x for x in l if len(x) > 5]"
+        }
+    ]
+}

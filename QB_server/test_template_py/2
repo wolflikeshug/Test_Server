@@ -13,12 +13,12 @@ if multiply_by_two([1, 2, 3, 4, 5]) == [2, 4, 6, 8, 10]:
                 if multiply_by_two([-10, -20, -30, -40, -50]) == [-20, -40, -60, -80, -100]:
                     print("0")
                 else:
-                    print("5")
+                    print("Failed test case 5")
             else:
-                print("4")
+                print("Failed test case 4")
         else:
-            print("3")
+            print("Failed test case 3")
     else:
-        print("2")
+        print("Failed test case 2")
 else:
-    print("1")
+    print("Failed test case 1")

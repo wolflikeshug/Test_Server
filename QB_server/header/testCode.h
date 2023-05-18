@@ -7,8 +7,8 @@
 #include <sys/wait.h>
 #include "./config.h"
 
-int testCode_c(char *path, int id, const char* content, const char* username);
+char *testCode_c(char *path, int id, const char *content, const char *username);
 
-int testCode_py(char *path, int id, const char* content, const char* username);
+char *testCode_py(char *path, int id, const char* content, const char* username);
 
 #endif // TESTCODE_H

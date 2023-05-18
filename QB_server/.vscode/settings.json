@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "server.h": "c",
+        "grading.h": "c",
+        "select_questions.h": "c"
+    }
+}
