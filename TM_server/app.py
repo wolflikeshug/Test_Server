@@ -1,3 +1,7 @@
+#
+#  CITS3002  Project    2023-sem1
+#  Student:  23006364   HU ZHUO   100
+#
 from flask import Flask, render_template, request, redirect, url_for, session, make_response, flash
 from flask_session import Session
 import json
@@ -203,6 +207,8 @@ def manage():
         request_question('bob')
     if users['chris']['selected_questions'] == {}:
         request_question('chris')
+    with open('users.json', 'r') as f:
+        users = json.load(f)
     return render_template('manage.html',\
                             total_score_alice = users['alice']['total_score'],\
                             total_score_bob = users['bob']['total_score'],\

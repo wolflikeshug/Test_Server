@@ -1,3 +1,7 @@
+/*
+ *   CITS3002  Project    2023-sem1
+ *   Student:  23006364   HU ZHUO   100
+ */
 #include "../header/config.h"
 
 // Function to get the value of a field from qb.ini file

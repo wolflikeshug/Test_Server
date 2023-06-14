@@ -1,1 +1,336 @@
-{"alice": {"id": "1", "password": "123", "selected_questions": {"c": {"choice": [{"id": 2, "question": "Which of the following is true about the C99 data type 'int'?", "choices": ["It is guaranteed to be at least 16 bits in size", "It is guaranteed to be exactly 32 bits in size", "It is guaranteed to be at least 32 bits in size", "It is guaranteed to be at least 64 bits in size"]}, {"id": 1, "question": "Which of the following is not a valid C99 data type?", "choices": ["long decimal", "unsigned long long", "short int", "unsigned decimal"]}], "multi-choice": [{"id": 2, "question": "Which of the following are keywords in the C language?", "choices": ["function", "struct", "extern", "volatile", "private"]}, {"id": 1, "question": "Which of the following are new features added in the C99 standard?", "choices": ["Variable-length arrays", "Boolean type and bool keyword", "Qualifiers (such as restrict, _Atomic, etc.)", "Compound literals and generic macros", "Further program optimization"]}], "coding": [{"id": 2, "question": "Write a C function sum_odd that takes a list of integers as input, and returns the sum of all odd numbers in the list. | int sum_odd(int *list, int len)"}]}, "py": {"choice": [{"id": 2, "question": "What is the result of the expression '5' + '2' in Python?", "choices": ["7", "'7'", "'52'", "Error"]}, {"id": 3, "question": "Which of the following is not a Python control flow statement?", "choices": ["if", "for", "continue", "goto"]}], "multi-choice": [{"id": 3, "question": "Which of the following are valid ways to declare a Python dictionary?", "choices": ["{1: 'one', 2: 'two', 3: 'three'}", "dict([(1, 'one'), (2, 'two'), (3, 'three')])", "{'one': 1, 'two': 2, 'three': 3}", "[('one', 1), ('two', 2), ('three', 3)]", "{'one': 1, 'two': 2, 'three': 3, 'four': 4}"]}, {"id": 1, "question": "Which of the following are valid Python data types?", "choices": ["int", "str", "bool", "dec", "list"]}], "coding": [{"id": 2, "question": "Write a python function multiply_by_two that takes a list of integers as input, and returns a new list where each element of the original list is multiplied by 2. | def multiply_by_two(l):"}]}}, "attempts": {"c": {"choice": [{"attempt_answer": ["a"], "attempt_result": ["0"], "attempt_score": 3}, {"attempt_answer": ["b", "a"], "attempt_result": ["1", "0"], "attempt_score": 2}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"id": 0, "attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}, "py": {"choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}}, "total_score": 5}, "bob": {"id": "2", "password": "456", "selected_questions": {"c": {"choice": [{"id": 2, "question": "Which of the following is true about the C99 data type 'int'?", "choices": ["It is guaranteed to be at least 16 bits in size", "It is guaranteed to be exactly 32 bits in size", "It is guaranteed to be at least 32 bits in size", "It is guaranteed to be at least 64 bits in size"]}, {"id": 4, "question": "What is the difference between 'char' and 'unsigned char' in C99?", "choices": ["'char' is signed by default, while 'unsigned char' is unsigned", "'char' is unsigned by default, while 'unsigned char' is signed", "'char' and 'unsigned char' are the same data type", "There is no 'unsigned char' data type in C99"]}], "multi-choice": [{"id": 4, "question": "Which of the following are new features added in the C99 standard?", "choices": ["Variable-length arrays", "Boolean type and bool keyword", "Qualifiers (such as restrict, _Atomic, etc.)", "Compound literals and generic macros", "Further program optimization"]}, {"id": 3, "question": "Which of the following are storage classes in the C language?", "choices": ["global", "static", "dynamic", "extern", "auto"]}], "coding": [{"id": 3, "question": "Write a C function second_largest that takes a list of integers as input, and returns the second largest number in the list. | int second_largest(int *list, int len)"}]}, "py": {"choice": [{"id": 1, "question": "Which of the following is not a Python data type?", "choices": ["int", "str", "dec", "bool"]}, {"id": 2, "question": "What is the result of the expression '5' + '2' in Python?", "choices": ["7", "'7'", "'52'", "Error"]}], "multi-choice": [{"id": 1, "question": "Which of the following are valid Python data types?", "choices": ["int", "str", "bool", "dec", "list"]}, {"id": 2, "question": "Which of the following are true regarding Python functions?", "choices": ["Functions can take optional arguments", "Functions can return multiple values", "Functions cannot be nested", "Functions can only be defined using the def keyword", "Functions can modify global variables"]}], "coding": [{"id": 1, "question": "Write a python function reverse_words that takes a string as input, and returns a new string where each word in the original string is replaced with its reverse. | def reverse_words(s):"}]}}, "attempts": {"c": {"choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"id": 0, "attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}, "py": {"choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}}, "total_score": 9}, "chris": {"id": "3", "password": "789", "selected_questions": {"c": {"choice": [{"id": 2, "question": "Which of the following is true about the C99 data type 'int'?", "choices": ["It is guaranteed to be at least 16 bits in size", "It is guaranteed to be exactly 32 bits in size", "It is guaranteed to be at least 32 bits in size", "It is guaranteed to be at least 64 bits in size"]}, {"id": 4, "question": "What is the difference between 'char' and 'unsigned char' in C99?", "choices": ["'char' is signed by default, while 'unsigned char' is unsigned", "'char' is unsigned by default, while 'unsigned char' is signed", "'char' and 'unsigned char' are the same data type", "There is no 'unsigned char' data type in C99"]}], "multi-choice": [{"id": 2, "question": "Which of the following are keywords in the C language?", "choices": ["function", "struct", "extern", "volatile", "private"]}, {"id": 3, "question": "Which of the following are storage classes in the C language?", "choices": ["global", "static", "dynamic", "extern", "auto"]}], "coding": [{"id": 3, "question": "Write a C function second_largest that takes a list of integers as input, and returns the second largest number in the list. | int second_largest(int *list, int len)"}]}, "py": {"choice": [{"id": 1, "question": "Which of the following is not a Python data type?", "choices": ["int", "str", "dec", "bool"]}, {"id": 3, "question": "Which of the following is not a Python control flow statement?", "choices": ["if", "for", "continue", "goto"]}], "multi-choice": [{"id": 2, "question": "Which of the following are true regarding Python functions?", "choices": ["Functions can take optional arguments", "Functions can return multiple values", "Functions cannot be nested", "Functions can only be defined using the def keyword", "Functions can modify global variables"]}, {"id": 1, "question": "Which of the following are valid Python data types?", "choices": ["int", "str", "bool", "dec", "list"]}], "coding": [{"id": 3, "question": "Write a python function filter_long_strings that takes a list of strings as input, and returns a new list containing only the strings that are longer than 5 characters. | def filter_long_strings(l):"}]}}, "attempts": {"c": {"choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"id": 0, "attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}, "py": {"choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "multi-choice": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}, {"attempt_answer": [], "attempt_result": [], "attempt_score": 0}], "coding": [{"attempt_answer": [], "attempt_result": [], "attempt_score": 0}]}}, "total_score": 0}}
+{
+    "alice": {
+        "id": "1",
+        "password": "123",
+        "selected_questions": {
+            "c": {
+                "choice": [
+                    {
+                        "id": 2,
+                        "question": "Which of the following is true about the C99 data type 'int'?",
+                        "choices": [
+                            "It is guaranteed to be at least 16 bits in size",
+                            "It is guaranteed to be exactly 32 bits in size",
+                            "It is guaranteed to be at least 32 bits in size",
+                            "It is guaranteed to be at least 64 bits in size"
+                        ]
+                    },
+                    {
+                        "id": 1,
+                        "question": "Which of the following is not a valid C99 data type?",
+                        "choices": [
+                            "long decimal",
+                            "unsigned long long",
+                            "short int",
+                            "unsigned decimal"
+                        ]
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "id": 2,
+                        "question": "Which of the following are keywords in the C language?",
+                        "choices": [
+                            "function",
+                            "struct",
+                            "extern",
+                            "volatile",
+                            "private"
+                        ]
+                    },
+                    {
+                        "id": 1,
+                        "question": "Which of the following are new features added in the C99 standard?",
+                        "choices": [
+                            "Variable-length arrays",
+                            "Boolean type and bool keyword",
+                            "Qualifiers (such as restrict, _Atomic, etc.)",
+                            "Compound literals and generic macros",
+                            "Further program optimization"
+                        ]
+                    }
+                ],
+                "coding": [
+                    {
+                        "id": 2,
+                        "question": "Write a C function sum_odd that takes a list of integers as input, and returns the sum of all odd numbers in the list. | int sum_odd(int *list, int len)"
+                    }
+                ]
+            },
+            "py": {
+                "choice": [
+                    {
+                        "id": 2,
+                        "question": "What is the result of the expression '5' + '2' in Python?",
+                        "choices": [
+                            "7",
+                            "'7'",
+                            "'52'",
+                            "Error"
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "question": "Which of the following is not a Python control flow statement?",
+                        "choices": [
+                            "if",
+                            "for",
+                            "continue",
+                            "goto"
+                        ]
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "id": 3,
+                        "question": "Which of the following are valid ways to declare a Python dictionary?",
+                        "choices": [
+                            "{1: 'one', 2: 'two', 3: 'three'}",
+                            "dict([(1, 'one'), (2, 'two'), (3, 'three')])",
+                            "{'one': 1, 'two': 2, 'three': 3}",
+                            "[('one', 1), ('two', 2), ('three', 3)]",
+                            "{'one': 1, 'two': 2, 'three': 3, 'four': 4}"
+                        ]
+                    },
+                    {
+                        "id": 1,
+                        "question": "Which of the following are valid Python data types?",
+                        "choices": [
+                            "int",
+                            "str",
+                            "bool",
+                            "dec",
+                            "list"
+                        ]
+                    }
+                ],
+                "coding": [
+                    {
+                        "id": 2,
+                        "question": "Write a python function multiply_by_two that takes a list of integers as input, and returns a new list where each element of the original list is multiplied by 2. | def multiply_by_two(l):"
+                    }
+                ]
+            }
+        },
+        "attempts": {
+            "c": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "id": 0,
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            },
+            "py": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            }
+        },
+        "total_score": 0
+    },
+    "bob": {
+        "id": "2",
+        "password": "456",
+        "selected_questions": {},
+        "attempts": {
+            "c": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "id": 0,
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            },
+            "py": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            }
+        },
+        "total_score": 0
+    },
+    "chris": {
+        "id": "3",
+        "password": "789",
+        "selected_questions": {},
+        "attempts": {
+            "c": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "id": 0,
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            },
+            "py": {
+                "choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "multi-choice": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    },
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ],
+                "coding": [
+                    {
+                        "attempt_answer": [],
+                        "attempt_result": [],
+                        "attempt_score": 0
+                    }
+                ]
+            }
+        },
+        "total_score": 0
+    }
+}

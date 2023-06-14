@@ -1,3 +1,7 @@
+/*
+ *   CITS3002  Project    2023-sem1
+ *   Student:  23006364   HU ZHUO   100
+ */
 #ifndef GRADING_H
 #define GRADING_H
 

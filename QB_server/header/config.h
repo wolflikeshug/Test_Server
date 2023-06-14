@@ -1,3 +1,7 @@
+/*
+ *   CITS3002  Project    2023-sem1
+ *   Student:  23006364   HU ZHUO   100
+ */
 #ifndef QB_CONFIG_H
 #define QB_CONFIG_H
 

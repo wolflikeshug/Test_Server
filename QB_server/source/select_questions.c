@@ -1,16 +1,23 @@
+/*
+ *   CITS3002  Project    2023-sem1
+ *   Student:  23006364   HU ZHUO   100
+ */
 #include "../header/select_questions.h"
 
-char* readFile(char *filename) {
+char *readFile(char *filename)
+{
     char *buffer = NULL;
     long length;
     FILE *f = fopen(filename, "rb");
 
-    if (f) {
+    if (f)
+    {
         fseek(f, 0, SEEK_END);
         length = ftell(f);
         fseek(f, 0, SEEK_SET);
         buffer = malloc(length);
-        if (buffer) {
+        if (buffer)
+        {
             fread(buffer, 1, length, f);
         }
         fclose(f);
@@ -18,14 +25,16 @@ char* readFile(char *filename) {
     return buffer;
 }
 
-cJSON* remove_keys(cJSON* item, const char* key_to_remove) {
-    cJSON* new_item = cJSON_Duplicate(item, 1);
+cJSON *remove_keys(cJSON *item, const char *key_to_remove)
+{
+    cJSON *new_item = cJSON_Duplicate(item, 1);
     cJSON_DeleteItemFromObject(new_item, key_to_remove);
     return new_item;
 }
 
-char* select_questions(char* json_file, QUESTION *q) {
-    char* text = readFile(json_file);
+char *select_questions(char *json_file, QUESTION *q)
+{
+    char *text = readFile(json_file);
     cJSON *json = cJSON_Parse(text);
 
     cJSON *selected_questions = cJSON_CreateObject();
@@ -38,17 +47,20 @@ char* select_questions(char* json_file, QUESTION *q) {
     cJSON *selected_multi_choices = cJSON_CreateArray();
     cJSON *selected_codings = cJSON_CreateArray();
 
-    for (int i = 0; q->choice_id[i] != 0; i++) {
+    for (int i = 0; q->choice_id[i] != 0; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(choices, q->choice_id[i] - 1);
         cJSON_AddItemToArray(selected_choices, remove_keys(item, "answer"));
     }
 
-    for (int i = 0; q->multi_choice_id[i] != 0; i++) {
+    for (int i = 0; q->multi_choice_id[i] != 0; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(multi_choices, q->multi_choice_id[i] - 1);
         cJSON_AddItemToArray(selected_multi_choices, remove_keys(item, "answer"));
     }
 
-    for (int i = 0; q->coding_id[i] != 0; i++) {
+    for (int i = 0; q->coding_id[i] != 0; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(codings, q->coding_id[i] - 1);
         cJSON *item_without_answer = remove_keys(item, "answer");
         cJSON_DeleteItemFromObject(item_without_answer, "test_cases");
@@ -60,7 +72,7 @@ char* select_questions(char* json_file, QUESTION *q) {
     cJSON_AddItemToObject(selected_questions, "coding", selected_codings);
 
     char *str = cJSON_Print(selected_questions);
-    
+
     // Cleanup
     cJSON_Delete(json);
     cJSON_Delete(selected_questions);
@@ -68,4 +80,3 @@ char* select_questions(char* json_file, QUESTION *q) {
 
     return str;
 }
-

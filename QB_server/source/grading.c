@@ -1,9 +1,15 @@
+/*
+ *   CITS3002  Project    2023-sem1
+ *   Student:  23006364   HU ZHUO   100
+ */
 #include "../header/grading.h"
 
 // Function to read a file into a string
-char *read_file(char *filename) {
+char *read_file(char *filename)
+{
     FILE *fp = fopen(filename, "r");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         return NULL;
     }
 
@@ -19,19 +25,25 @@ char *read_file(char *filename) {
     return buffer;
 }
 
-int gradechoice(int id, char *filepath, char *ans) {
+int gradechoice(int id, char *filepath, char *ans)
+{
     char *data = read_file(filepath);
     cJSON *json = cJSON_Parse(data);
     cJSON *choices = cJSON_GetObjectItem(json, "choice");
 
     int size = cJSON_GetArraySize(choices);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(choices, i);
-        if (cJSON_GetObjectItem(item, "id")->valueint == id) {
+        if (cJSON_GetObjectItem(item, "id")->valueint == id)
+        {
             char *correct_ans = cJSON_GetObjectItem(item, "answer")->valuestring;
-            if (strcmp(correct_ans, ans) == 0) {
+            if (strcmp(correct_ans, ans) == 0)
+            {
                 return 0;
-            } else {
+            }
+            else
+            {
                 return 1;
             }
         }
@@ -40,19 +52,25 @@ int gradechoice(int id, char *filepath, char *ans) {
     return 1;
 }
 
-int grademulti(int id, char *filepath, char *ans) {
+int grademulti(int id, char *filepath, char *ans)
+{
     char *data = read_file(filepath);
     cJSON *json = cJSON_Parse(data);
     cJSON *multichoices = cJSON_GetObjectItem(json, "multi-choice");
 
     int size = cJSON_GetArraySize(multichoices);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(multichoices, i);
-        if (cJSON_GetObjectItem(item, "id")->valueint == id) {
+        if (cJSON_GetObjectItem(item, "id")->valueint == id)
+        {
             char *correct_ans = cJSON_GetObjectItem(item, "answer")->valuestring;
-            if (strcmp(correct_ans, ans) == 0) {
+            if (strcmp(correct_ans, ans) == 0)
+            {
                 return 0;
-            } else {
+            }
+            else
+            {
                 return 1;
             }
         }
@@ -61,15 +79,18 @@ int grademulti(int id, char *filepath, char *ans) {
     return 1;
 }
 
-char *choiceans(int id, char *filepath){
+char *choiceans(int id, char *filepath)
+{
     char *data = read_file(filepath);
     cJSON *json = cJSON_Parse(data);
     cJSON *choices = cJSON_GetObjectItem(json, "choice");
 
     int size = cJSON_GetArraySize(choices);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(choices, i);
-        if (cJSON_GetObjectItem(item, "id")->valueint == id) {
+        if (cJSON_GetObjectItem(item, "id")->valueint == id)
+        {
             char *correct_ans = cJSON_GetObjectItem(item, "answer")->valuestring;
             return correct_ans;
         }
@@ -77,15 +98,18 @@ char *choiceans(int id, char *filepath){
     return "error";
 }
 
-char *multians(int id,  char *filepath){
+char *multians(int id, char *filepath)
+{
     char *data = read_file(filepath);
     cJSON *json = cJSON_Parse(data);
     cJSON *choices = cJSON_GetObjectItem(json, "multi-choice");
 
     int size = cJSON_GetArraySize(choices);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(choices, i);
-        if (cJSON_GetObjectItem(item, "id")->valueint == id) {
+        if (cJSON_GetObjectItem(item, "id")->valueint == id)
+        {
             char *correct_ans = cJSON_GetObjectItem(item, "answer")->valuestring;
             return correct_ans;
         }
@@ -93,15 +117,18 @@ char *multians(int id,  char *filepath){
     return "error";
 }
 
-char *codingans(int id, char *filepath){
+char *codingans(int id, char *filepath)
+{
     char *data = read_file(filepath);
     cJSON *json = cJSON_Parse(data);
     cJSON *choices = cJSON_GetObjectItem(json, "coding");
 
     int size = cJSON_GetArraySize(choices);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cJSON *item = cJSON_GetArrayItem(choices, i);
-        if (cJSON_GetObjectItem(item, "id")->valueint == id) {
+        if (cJSON_GetObjectItem(item, "id")->valueint == id)
+        {
             char *correct_ans = cJSON_GetObjectItem(item, "answer")->valuestring;
             return correct_ans;
         }
